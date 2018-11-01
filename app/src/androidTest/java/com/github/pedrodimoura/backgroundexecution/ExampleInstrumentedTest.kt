@@ -5,11 +5,9 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.work.Configuration
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.github.pedrodimoura.backgroundexecution.background.worker.PeopleWorker
+import com.github.pedrodimoura.backgroundexecution.background.worker.impl.PeopleWorker
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.junit.Assert.*
 
 /**
  * Instrumented test, which will execute on an Android device.

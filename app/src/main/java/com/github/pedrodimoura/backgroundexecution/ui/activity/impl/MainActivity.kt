@@ -8,8 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.github.pedrodimoura.backgroundexecution.R
-import com.github.pedrodimoura.backgroundexecution.background.worker.PeopleWorker
-import com.github.pedrodimoura.backgroundexecution.background.worker.PlanetsWorker
+import com.github.pedrodimoura.backgroundexecution.background.worker.impl.*
 import com.github.pedrodimoura.backgroundexecution.ui.activity.IView
 import com.github.pedrodimoura.backgroundexecution.ui.vm.impl.PeopleViewModel
 
@@ -52,14 +51,28 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener,
     }
 
     override fun observeData() {
-        val peopleWorkRequest = OneTimeWorkRequest.Builder(PeopleWorker::class.java).addTag(PeopleWorker.TAG).build()
-        val planetsWorkRequest = OneTimeWorkRequest.Builder(PlanetsWorker::class.java).addTag(PlanetsWorker.TAG).build()
+        val filmsWorkRequest = OneTimeWorkRequest.Builder(FilmsWorker::class.java).addTag(
+            FilmsWorker.TAG).build()
+        val peopleWorkRequest = OneTimeWorkRequest.Builder(PeopleWorker::class.java).addTag(
+            PeopleWorker.TAG).build()
+        val planetsWorkRequest = OneTimeWorkRequest.Builder(PlanetsWorker::class.java).addTag(
+            PlanetsWorker.TAG).build()
+        val speciesWorkRequest = OneTimeWorkRequest.Builder(SpeciesWorker::class.java).addTag(
+            SpeciesWorker.TAG).build()
+        val starshipsWorkRequest = OneTimeWorkRequest.Builder(StarshipsWorker::class.java).addTag(
+            StarshipsWorker.TAG).build()
+        val vehiclesWorkRequest = OneTimeWorkRequest.Builder(VehiclesWorker::class.java).addTag(
+            VehiclesWorker.TAG).build()
 
         WorkManager
             .getInstance()
             .enqueue(
                 peopleWorkRequest,
-                planetsWorkRequest
+                filmsWorkRequest,
+                planetsWorkRequest,
+                speciesWorkRequest,
+                starshipsWorkRequest,
+                vehiclesWorkRequest
             )
 //        this.mPeopleViewModel.getData()
 //        this.mPeopleViewModel.observeData().observeForever{

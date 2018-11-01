@@ -1,7 +1,6 @@
 package com.github.pedrodimoura.backgroundexecution.model.dao.remote.impl
 
-import com.github.pedrodimoura.backgroundexecution.model.dao.remote.PersonDAO
-import com.github.pedrodimoura.backgroundexecution.model.dao.remote.PlanetsDAO
+import com.github.pedrodimoura.backgroundexecution.model.dao.remote.*
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -36,5 +35,9 @@ object NetworkHelper {
 
     fun getPeopleDAO(): PersonDAO = retrofit().create(PersonDAO::class.java)
     fun getPlanetsDAO(): PlanetsDAO = retrofit().create(PlanetsDAO::class.java)
+    fun getFilmsDAO(): FilmsDAO = retrofit().create(FilmsDAO::class.java)
+    fun getSpeciesDAO(): SpeciesDAO = retrofit().create(SpeciesDAO::class.java)
+    fun getVehiclesDAO(): VehiclesDAO = retrofit().create(VehiclesDAO::class.java)
+    fun getStarshipsDAO(): StarshipsDAO = retrofit().create(StarshipsDAO::class.java)
 
 }

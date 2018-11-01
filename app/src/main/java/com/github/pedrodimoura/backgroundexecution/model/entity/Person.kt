@@ -40,8 +40,6 @@ class Person {
     var edited: String = ""
     var url: String = ""
 
-    override fun toString(): String {
-        return GsonUtil.toJson(this)
-    }
+    override fun toString() = GsonUtil.toJson(this)
 
 }
